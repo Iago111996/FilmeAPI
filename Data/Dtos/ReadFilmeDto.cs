@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FilmeAPI.Models
+namespace FilmeAPI.Data.Dtos
 {
-    public class Filme
+    public class ReadFilmeDto
     {
         [Key]
         [Required]
-         public int Id { get; set; }
-        
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "O campo título é obrigatório")]
         public string Titulo { get; set; }
 
@@ -20,8 +20,10 @@ namespace FilmeAPI.Models
 
         [StringLength(30, ErrorMessage = "O gênero não pode estrapolar 30 caracteres")]
         public string Genero { get; set; }
-        
+
         [Range(0, 300, ErrorMessage = "Coloque um número entre 0 e 300")]
         public int Duracao { get; set; }
+
+        public DateTime HoraDaConsulta { get; set; }
     }
 }
